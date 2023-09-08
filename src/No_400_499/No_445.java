@@ -43,4 +43,6 @@ public class No_445 {
         }
         return dummy.next;
     }
+
+    // 用stack倒序存取，注意后面节点拼接顺序
 }
