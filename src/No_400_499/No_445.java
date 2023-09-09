@@ -3,14 +3,6 @@ package No_400_499;
 import java.util.Stack;
 
 // No.445 Add Two Numbers II
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- }
-
 public class No_445 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         if (l1 == null && l2 == null) return null;
