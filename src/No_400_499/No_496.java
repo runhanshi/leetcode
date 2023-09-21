@@ -1,6 +1,7 @@
 package No_400_499;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 // No.496.Next Greater Element I
@@ -8,7 +9,7 @@ import java.util.Stack;
 public class No_496 {
     public int[] nextGreaterElement(int[] nums1, int[] nums2){
         int[] greater = nextGreaterElement(nums2);
-        HashMap<Integer, Integer> greaterMap = new HashMap<>();
+        Map<Integer, Integer> greaterMap = new HashMap<>();
         for (int i = 0; i < nums2.length; i++){
             greaterMap.put(nums2[i], greater[i]);
         }
@@ -22,11 +23,13 @@ public class No_496 {
     private int[] nextGreaterElement(int[] nums){
         int n = nums.length;
         int[] res = new int[n];
-        Stack<Integer> s = new Stack<>();
-        for(int i = n - 1; i >= 0; i--){
-            while(!s.isEmpty() && s.peek() <= nums[i]) s.pop();
-            res[i] = s.isEmpty() ? -1 : s.peek();
-            s.push(nums[i]);
+        Stack<Integer> stk = new Stack<>();
+        for (int i = n - 1; i >= 0; i--){
+            while(!stk.isEmpty() && stk.peek() <= nums[i]) {
+                stk.pop();
+            }
+            res[i] = !stk.isEmpty() ? stk.peek() : -1;
+            stk.push(nums[i]);
         }
         return res;
     }
